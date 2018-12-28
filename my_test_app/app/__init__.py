@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import url_for
-from worker import celery
+from config.celery_config import celery
 import celery.states as states
 
 app = Flask(__name__)

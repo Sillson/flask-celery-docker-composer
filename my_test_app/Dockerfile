@@ -13,7 +13,8 @@ WORKDIR /my_test_app
 
 # install requirements
 RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+    pip install -r my_test_app/requirements.txt
+    #pip install -r requirements.txt
 
 # expose the app port
 EXPOSE 5000

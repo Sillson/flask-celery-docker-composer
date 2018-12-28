@@ -4,8 +4,8 @@ services:
     image: "redis:alpine"
   web:
     build:
-      context: ./my_test_app
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./my_test_app/Dockerfile
     restart: always
     volumes:
       - ./my_test_app:/my_test_app
@@ -19,14 +19,14 @@ services:
       FLASK_ENV: development
   worker:
     build:
-      context: celery_queue
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./celery_queue/Dockerfile
     depends_on:
       - redis
   monitor:
     build:
-      context: celery_queue
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./celery_queue/Dockerfile
     ports:
      - "5555:5555"
     entrypoint: flower
